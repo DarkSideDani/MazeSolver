@@ -1,21 +1,28 @@
-import tkinter as tk
-
 from tkinter import Tk, BOTH, Canvas
 
 class Window:
 
     def __init__(self, width, height):
-        self.width = width
-        self.height = height
-        self.root = tk.Tk()
-        # Window title
-        self.root.title("Maze Solver")
-        # Window size
-        self.root.geometry(f"{self.width}x{self.height}")
+        self.__root = Tk() # Root Widget
+        self.__root.title("Maze Solver") # Window title
         
-    def run(self):
-        self.root.mainloop()
+        self.__canvas = Canvas(self.root, width=self.width, height=self.height, bg="white")
+        self.__canvas.pack(fill=BOTH, expand=True)
         
+        self.__running = False # Data member to represent if the window is "running"
         
-window = Window(800,600)
-window.run()
+        self.__root.protocol("WM_DELETE_WINDOW", self.close) # Close protocol
+        
+    def redraw(self):
+        # Updating the window to process any pending events
+        self.__root.update_idletasks()
+        self.__root.update()
+        
+    def wait_for_close(self):
+        self.__running = True
+        while self.__running:
+            self.redraw()
+        print("window closed...")
+            
+    def close(self):
+        self.__running = False # helps stop the wait_for_close loop

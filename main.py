@@ -1,6 +1,8 @@
 from window import Window
 
 
-if __name__ == "__main__":
-    window = Window(800, 600)
-    window.run()
+def main():
+    win = Window(800, 600)
+    win.wait_for_close()
+    
+main()
