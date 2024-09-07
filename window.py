@@ -6,7 +6,7 @@ class Window:
         self.__root = Tk() # Root Widget
         self.__root.title("Maze Solver") # Window title
         
-        self.__canvas = Canvas(self.root, width=self.width, height=self.height, bg="white")
+        self.__canvas = Canvas(self.__root, width=width, height=height, bg="white")
         self.__canvas.pack(fill=BOTH, expand=True)
         
         self.__running = False # Data member to represent if the window is "running"
