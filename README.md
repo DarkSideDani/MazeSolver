@@ -28,14 +28,6 @@ To get started with the project, follow these steps:
 
 ## Running the Project
 
-### Using the Executable
-
-1. **Run the Executable**:
-   - Navigate to the `dist` directory (or wherever PyInstaller placed the executable).
-   - Execute the file corresponding to your operating system:
-     - On Windows: `maze_solver.exe`
-     - On macOS/Linux: `maze_solver` (or `maze_solver.app` on macOS)
-
 ### Using the Python Script
 
 1. **Run the Main Script**:
