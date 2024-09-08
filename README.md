@@ -1,54 +1,71 @@
-# Maze Solver
+# Maze Generator and Solver
 
-## Overview
-
-The Maze Solver project is a Python application that generates and solves mazes using graphical visualization. The project utilizes Tkinter for rendering the maze and its solution, and employs algorithms for both maze generation and solving. The core functionality includes creating a maze, removing walls to form paths, and solving the maze using depth-first search.
+This project implements a maze generator and solver using Python's Tkinter for graphical display. The maze is generated using a recursive backtracking algorithm and can be solved using depth-first search.
 
 ## Features
 
-- **Maze Generation**: Generates a maze using a randomized depth-first search algorithm. The maze is created with walls between cells, which are then removed to form a solvable path.
-- **Maze Solving**: Uses depth-first search to find a path from the top-left cell to the bottom-right cell of the maze.
-- **Graphical Interface**: Provides a visual representation of the maze and the solution using Tkinter. The maze and solution paths are drawn on a canvas, with walls being displayed or removed dynamically.
+- **Maze Generation**: Generates a random maze using recursive backtracking.
+- **Maze Solving**: Solves the maze using depth-first search.
+- **Graphical Display**: Visualizes the maze and its solution using Tkinter.
+- **Executable**: The project includes an executable version for easy execution.
 
-## Components
+## Installation
 
-### 1. **Main Application (`main.py`)**
+To get started with the project, follow these steps:
 
-The main script sets up the graphical window and initializes the maze with specified dimensions. It handles the maze generation and solving processes, and ensures that the window remains open until the user closes it.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/DarkSideDani/MazeSolver.git
+   cd MazeSolver
+   ```
 
-### 2. **Maze Class (`maze.py`)**
+2. **Install Dependencies**:
+   - Ensure you have Python installed. Tkinter is included with standard Python installations, so no additional installation is needed for Tkinter.
+   - Install PyInstaller if you want to create executables. You can install it using pip:
+     ```bash
+     pip install pyinstaller
+     ```
 
-The `Maze` class is responsible for creating the maze structure, including:
-- **Cell Initialization**: Creates a grid of cells, each with walls on all sides.
-- **Maze Generation**: Uses a randomized depth-first search to remove walls and generate a solvable maze.
-- **Breaking Entrance and Exit Walls**: Removes walls at the entrance (top-left) and exit (bottom-right) of the maze to ensure a path is available.
-- **Solving the Maze**: Implements a depth-first search algorithm to find a path from the entrance to the exit.
+## Running the Project
 
-### 3. **Cell Class (`cell.py`)**
+### Using the Executable
 
-The `Cell` class represents individual cells within the maze. Each cell can have walls on its four sides, and the class includes methods to:
-- **Draw the Cell**: Draws the cell and its walls on the canvas. Walls are represented as lines, and removed walls are drawn in a different color to indicate they are no longer present.
-- **Draw Movement Path**: Visualizes the path taken while solving the maze, with different colors indicating movement and undo actions.
+1. **Run the Executable**:
+   - Navigate to the `dist` directory (or wherever PyInstaller placed the executable).
+   - Execute the file corresponding to your operating system:
+     - On Windows: `maze_solver.exe`
+     - On macOS/Linux: `maze_solver` (or `maze_solver.app` on macOS)
 
-### 4. **Graphics Handling (`graphics.py`)**
+### Using the Python Script
 
-The `graphics.py` module defines the graphical window and drawing functions:
-- **Window Class**: Manages the Tkinter window, including the canvas for drawing the maze and handling user interactions.
-- **Point and Line Classes**: Represent geometric shapes used for drawing the maze and solution paths.
+1. **Run the Main Script**:
+   - Execute the following command to run the project using the Python script:
+     ```bash
+     python main.py
+     ```
 
-## Techniques Used
+## How It Works
 
-- **Depth-First Search (DFS)**: Employed both for generating the maze (to create a randomized layout) and for solving the maze (to find a path from start to finish).
-- **Recursive Algorithms**: Utilized for both maze generation and solving, allowing for elegant and straightforward implementations.
-- **Graphical Visualization**: Leveraged Tkinter to provide real-time feedback of the maze generation and solving processes, enhancing user interaction and experience.
+- **Maze Generation**: The maze is created using a recursive backtracking algorithm, which carves out paths in a grid of cells.
+- **Maze Solving**: The maze is solved using a depth-first search algorithm, which finds a path from the start to the end of the maze.
+- **Graphical Display**: Tkinter is used to render the maze and solution on the screen. The maze is drawn with walls, and the solution path is highlighted.
 
-## Getting Started
+## Testing
 
-1. **Installation**: Ensure you have Python and Tkinter installed. Clone the repository and install any required dependencies.
-2. **Run the Application**: Execute `main.py` to generate and solve a maze. The graphical window will display the maze and solution.
-3. **Customization**: Modify the maze dimensions, cell size, and other parameters in `main.py` to explore different maze configurations.
+To ensure the functionality of the maze generator and solver, unit tests have been written using Python's `unittest` module. To run the tests, use the following command:
 
+```bash
+python -m unittest discover
+```
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Tkinter for the graphical user interface.
+- Recursive backtracking algorithm for maze generation.
+- Depth-first search for maze solving.
+
+---
